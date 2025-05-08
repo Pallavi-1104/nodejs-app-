@@ -1,5 +1,5 @@
 stages:
-  - quality
+  - sonar
   - build
   - deploy
 
@@ -10,7 +10,7 @@ before_script:
   - echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
 
 code_quality:
-  stage: quality
+  stage: sonar
   image: sonarsource/sonar-scanner-cli:latest
   script:
     - sonar-scanner
